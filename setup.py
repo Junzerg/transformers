@@ -121,6 +121,8 @@ _deps = [
     "jax>=0.4.1,<=0.4.13",
     "jaxlib>=0.4.1,<=0.4.13",
     "jinja2>=3.1.0",
+    "jmespath>=1.0.1",
+
     "kenlm",
     # Keras pin - this is to make sure Keras 3 doesn't destroy us. Remove or change when we have proper support.
     "keras>2.9,<2.16",
@@ -332,7 +334,7 @@ extras["num2words"] = deps_list("num2words")
 extras["sentencepiece"] = deps_list("sentencepiece", "protobuf")
 extras["tiktoken"] = deps_list("tiktoken", "blobfile")
 extras["mistral-common"] = deps_list("mistral-common[opencv]")
-extras["chat_template"] = deps_list("jinja2")
+extras["chat_template"] = deps_list("jinja2", "jmespath")
 extras["testing"] = (
     deps_list(
         "pytest",
