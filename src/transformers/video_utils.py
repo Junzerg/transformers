@@ -93,6 +93,12 @@ class VideoMetadata(Mapping):
     def __len__(self):
         return len(fields(self))
 
+    def __iter__(self):
+        return (f.name for f in fields(self))
+
+    def __len__(self):
+        return len(fields(self))
+
     def __getitem__(self, item):
         return getattr(self, item)
 
