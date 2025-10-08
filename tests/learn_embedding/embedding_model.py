@@ -39,7 +39,7 @@ class EmbeddingModel(nn.Module):
                 "full_attention": None
             }
         position_embeddings = self.rotary_emb(hidden_states, position_ids)
-        for decoder_layer in self.layers[: self.config.num_hidden_layers]:
+        for decoder_layer in self.layers[:]:
             hidden_states = decoder_layer(
                 hidden_states,
                 attention_mask=causal_mask_mapping[decoder_layer.attention_type],
@@ -47,6 +47,6 @@ class EmbeddingModel(nn.Module):
                 position_embeddings=position_embeddings,
             )
 
-        hidden_states = self.norm(hidden_states)
+        # hidden_states = self.norm(hidden_states)
         return hidden_states
 
